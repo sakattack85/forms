@@ -1,13 +1,15 @@
-<form #myform="ngForm">
+<form #myform="ngForm" (ngSubmit)="getdata()">
 <div class="form-group">
 <label for="">Email</label>
-<input type="text" name="email" class="form-control" [(ngModel)]="myform.email">
-{{myform.email}}
+<input type="text" name="email" class="form-control"
+ [(ngModel)]="myform.email" #myemail="ngModel" email required>
+<span *ngIf="myemail.invalid"> Email is invalid</span>
 
 </div>
 <div class="form-group">
     <label for="">Password</label>
-    <input type="password" name="password" class="form-control" [(ngModel)]="myform.password">
+    <input type="password" 
+    name="password" class="form-control" [(ngModel)]="myform.password" minlength="3">
 {{myform.password}}    
 </div>
 <div class="form-group form-check">
@@ -37,5 +39,5 @@
 </select>
 </div>
 {{myform.role}}
-<button type='submit' class="btn btn-primary">Submit</button>
+<button [disabled]="!myform.valid"  type='submit' class="btn btn-primary">Submit</button>
 </form>
