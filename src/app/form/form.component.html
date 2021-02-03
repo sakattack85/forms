@@ -1,35 +1,41 @@
-<form >
+<form #myform="ngForm">
 <div class="form-group">
 <label for="">Email</label>
-<input type="text" name="email" class="form-control">
+<input type="text" name="email" class="form-control" [(ngModel)]="myform.email">
+{{myform.email}}
+
 </div>
 <div class="form-group">
     <label for="">Password</label>
-    <input type="password" name="password" class="form-control">
-    </div>
+    <input type="password" name="password" class="form-control" [(ngModel)]="myform.password">
+{{myform.password}}    
+</div>
 <div class="form-group form-check">
 <label for="">
-    <input type="checkbox" name="remember">Remember
+    <input type="checkbox" name="remember" [(ngModel)]="myform.remember">Remember
 </label>
+{{myform.remember}}
 </div>
 
 <div class="form-group form-check">
     <label for="">
-        <input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="male" [(ngModel)]="myform.gender">Male
     </label>
     </div>
 
     <div class="form-group form-check">
         <label for="">
-            <input type="radio" name="gender" value="female">Female
+            <input type="radio" name="gender" value="female" [(ngModel)]="myform.gender">Female
         </label>
         </div>
+        {{myform.gender}}
 <div class="form-group">
 <label for="">Select role</label>
-<select name="role" class='form-control w-25'>
+<select name="role" class="form-control w-25" [(ngModel)]="myform.role">
     <option value="member">Member</option>
     <option value="commitee">Commitee</option>
 </select>
 </div>
+{{myform.role}}
 <button type='submit' class="btn btn-primary">Submit</button>
 </form>
