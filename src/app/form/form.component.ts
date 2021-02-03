@@ -11,6 +11,9 @@ export class FormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    setTimeout(()=>
+    this.myform.setValue({email:"hi@com",password:"123", 
+    remember:true,gender:"male",role:"commitee"}))
   }
 
 }
